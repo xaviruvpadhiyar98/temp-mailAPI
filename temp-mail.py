@@ -48,10 +48,8 @@ while True:
 		if 'https://api4.temp-mail.org/request/mail/id/' in  url:
 			#print(events[-1]['params']['response']['url'])
 			break
-		
 	except:
 		sleep(3)
-		print("Error")
 
 driver.quit()
 while True:
