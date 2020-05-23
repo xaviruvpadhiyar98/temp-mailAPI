@@ -76,38 +76,41 @@ def requestMail(url):
 			#print(dumps(data, sort_keys=True, indent=4))
 		input("Press Any Key to refresh or Control + C to stop")
 
+def main():
+	while True:
+		oldNew = input("Enter 0 for Existing Email or 1 to create A new Temp Mail: ")
+		if oldNew == '0':
+			try:
+				with open('TempMail.txt','r') as f:
+					email = f.read()
+				with open('APITempMail.txt', 'r') as f:
+					api = f.read()
+				print(f"Your Email is {email}")
+				requestMail(api)	
+			except:
+				print("FILE ERROR! Probably Need TO Create NEW TEMP MAIL")
+		elif oldNew == '1':
 
-while True:
-	oldNew = input("Enter 0 for Existing Email or 1 to create A new Temp Mail: ")
-	if oldNew == '0':
-		try:
-			with open('TempMail.txt','r') as f:
-				email = f.read()
-			with open('APITempMail.txt', 'r') as f:
-				api = f.read()
-			print(f"Your Email is {email}")
-			requestMail(api)	
-		except:
-			print("FILE ERROR! Probably Need TO Create NEW TEMP MAIL")
-	elif oldNew == '1':
+			options = Options()
+			options.add_argument('--headless')
+			options.add_argument("--start-maximized")
+			options.add_argument("--incognito")
+			options.add_argument('--no-sandbox')
+			options.add_argument('--disable-gpu')
+			options.add_argument('--disable-infobars')
+			options.add_argument("--disable-extensions")
+			options.add_experimental_option('w3c', False)
 
-		options = Options()
-		options.add_argument('--headless')
-		options.add_argument("--start-maximized")
-		options.add_argument("--incognito")
-		options.add_argument('--no-sandbox')
-		options.add_argument('--disable-gpu')
-		options.add_argument('--disable-infobars')
-		options.add_argument("--disable-extensions")
-		options.add_experimental_option('w3c', False)
-
-		caps = DesiredCapabilities.CHROME
-		caps['loggingPrefs'] = {'performance': 'ALL'}
+			caps = DesiredCapabilities.CHROME
+			caps['loggingPrefs'] = {'performance': 'ALL'}
 
 
-		driver = Chrome(options=options,desired_capabilities = caps)
-		email = getTempEmail(driver)
-		url = getTempEmailApi(driver)
-		requestMail(url)
-	else:
-		print("Wrong Option. Please Select From the list")
+			driver = Chrome(options=options,desired_capabilities = caps)
+			email = getTempEmail(driver)
+			url = getTempEmailApi(driver)
+			requestMail(url)
+		else:
+			print("Wrong Option. Please Select From the list")
+			
+if __name__ == "__main__":
+	main()
