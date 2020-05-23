@@ -14,19 +14,15 @@ TempMailAPI is python file for Temporary Disposable Mails on Terminal
 Clone the repository from github
 
 ```bash
-
 git clone https://github.com/xaviruvpadhiyar98/temp-mailAPI.git
-
 cd temp-mailAPI/ 
-
-pip install -r requirements.txt
+pip install requests selenium
 ```
 
 ## Usage
 
 ```python
 import tempmailapi
-
 tempmailapi.main()
 ```
 
