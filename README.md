@@ -1,14 +1,25 @@
-# temp-mailAPI
+# TempMailAPI 
 
-Python File For Temp Mail on Terminal 
+TempMailAPI is python file for Temporary Disposable Mails on Terminal 
+
+## Dependecies
+1. Chrome or Chromium Browser
+2. ChromeDriver(Version of chromedriver and chrome browser should be same)
+3. Selenium
+4. Requests Module from python
 
 
-#Step To Install
+## Installation
 
-pip3 install -r requriements.txt 
+Clone the repository from github
 
+'''bash
+git clone https://github.com/xaviruvpadhiyar98/temp-mailAPI.git
+cd temp-mailAPI/
+pip install -r requirements.txt
+'''
 
-#Install Chromedriver of same version as chrome
+# Install Chromedriver of same version as chrome
 
 wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
 
